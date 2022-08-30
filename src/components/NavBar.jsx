@@ -15,6 +15,16 @@ export const NavBar = () => {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
+  function scrollHandler() {
+    if (window.scrollY >= 20) {
+      updateNavbar(true);
+    } else {
+      updateNavbar(false);
+    }
+  }
+
+  window.addEventListener("scroll", scrollHandler);
+
   return (
     <Navbar
       expanded={expand}
@@ -32,9 +42,9 @@ export const NavBar = () => {
             updateExpanded(expand ? false : "expanded");
           }}
         >
-          <span>2</span>
-          <span>3</span>
-          <span>4</span>
+          <span></span>
+          <span></span>
+          <span></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
